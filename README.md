@@ -12,5 +12,5 @@ Command and Query Responsibility Segregation, abbreviated as CQRS. It means sepa
 	
 	-dotnet run
 	
- 
+ Hossein Shahbazi 
 
