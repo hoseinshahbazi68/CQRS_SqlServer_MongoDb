@@ -13,7 +13,7 @@ namespace WebFramework.Configuration
         {
             app.UseHsts();
         }
-
+         
         public static void IntializeDatabase(this IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
