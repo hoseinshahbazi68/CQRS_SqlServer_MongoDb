@@ -29,6 +29,6 @@ jobs:
     - name: Stop localhost
       run: appcmd stop sites "localhost"
     - name: Publish Release
-      run: dotnet publish cqrs --configuration Release -o C:\cqrsproj\
+      run: dotnet publish localhost --configuration Release -o C:\cqrsproj\
     - name: Start localhost
       run: appcmd start sites "localhost"
