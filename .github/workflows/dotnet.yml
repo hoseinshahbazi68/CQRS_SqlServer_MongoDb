@@ -2,7 +2,7 @@ name: My .NET Action
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
