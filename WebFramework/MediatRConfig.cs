@@ -12,11 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
 namespace WebFramework
 {
     static public class MediatRConfig
-    {
+    { 
         public static void InitMediatR(this IServiceCollection Services)
         {
             Services.AddScoped<WriteProductRepository>();
