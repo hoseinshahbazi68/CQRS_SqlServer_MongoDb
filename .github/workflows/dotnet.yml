@@ -26,3 +26,4 @@ jobs:
       run: dotnet publish localhost --configuration Release -o C:\cqrsproj
     - name: Start localhost
       run: appcmd start sites "localhost"
+      
