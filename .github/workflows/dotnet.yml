@@ -23,7 +23,7 @@ jobs:
     - name: iisreset /stop
       run: iisreset /stop
     - name: Publish Release
-      run: dotnet publish localhost --configuration Release -o C:\cqrsproj
+      run: dotnet publish  --configuration Release -o C:\cqrsproj
     - name: Start iis
       run: iisreset /stop
       
