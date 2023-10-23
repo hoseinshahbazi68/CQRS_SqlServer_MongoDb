@@ -26,9 +26,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Stop cqrs
-      run: appcmd stop sites "cqrs"
+    - name: Stop localhost
+      run: appcmd stop sites "localhost"
     - name: Publish Release
       run: dotnet publish cqrs --configuration Release -o C:\cqrsproj\
-    - name: Start cqrs
-      run: appcmd start sites "cqrs"
+    - name: Start localhost
+      run: appcmd start sites "localhost"
