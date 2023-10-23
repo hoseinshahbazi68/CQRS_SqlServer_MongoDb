@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish Release
-      run: dotnet publish localhost --configuration Release -o C:\cqrsproj\
+      run: dotnet publish  --configuration Release -o C:\cqrsproj\
     
