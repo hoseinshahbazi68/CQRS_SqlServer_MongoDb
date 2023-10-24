@@ -9,7 +9,16 @@ using Sample.Core.Common.Pipelines;
 using WebFramework;
 using WebFramework.Configuration;
 
+//var builder = new ConfigurationBuilder()
+//            //.SetBasePath(env.ContentRootPath)
+//            
+//            .AddJsonFile($"appsettings.Development.json", optional: true)
+//            .AddEnvironmentVariables();
+//Configuration = builder.Build();
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile($"appsettings.Development.json", optional: false, reloadOnChange: true);
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -34,10 +43,13 @@ builder.Services.AddMainDbContext(builder.Configuration);
 builder.Services.InitMongo();
 builder.Services.InitMediatR();
 
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
     app.UseSwagger();
     app.UseSwaggerUI( c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"));
 
