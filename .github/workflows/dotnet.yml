@@ -1,34 +1,30 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: My .NET Action
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    
+    defaults:
+      run:
+        shell: cmd
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Stop example.com
-      run: appcmd stop sites "cqrs"
+    - name: iisreset /stop
+      run: iisreset /stop
     - name: Publish Release
-      run: dotnet publish cqrs --configuration Release -o C:\cqrsproj\
-    - name: Start cqrs
-      run: appcmd start sites "cqrs"
+      run: dotnet publish  --configuration Release -o C:\cqrsproj
+    - name: Start iis
+      run: iisreset /start
+      
+      
